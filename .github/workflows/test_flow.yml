@@ -4,9 +4,13 @@ on:
   pull_request:
     branches: 
       - main
+    paths-ignore:
+      - 'k8s/**'
   push:
     branches:
       - main
+    paths-ignore:
+      - 'k8s/**'
 
 jobs:
   test_run:
