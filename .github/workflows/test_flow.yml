@@ -1,4 +1,4 @@
-name: "Pull Request Labeler"
+name: "Demo"
 
 on:
   pull_request:
@@ -10,7 +10,7 @@ on:
       - master
     paths-ignore:
       - 'k8s/**'
-      
+
 jobs:
   test_run:
     runs-on: ubuntu-latest
