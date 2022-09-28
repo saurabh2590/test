@@ -1,0 +1,19 @@
+name: "Pull Request Labeler"
+
+on:
+  pull_request:
+    branches: ['master']
+    paths-ignore:
+      - 'k8s/**'
+  push:
+    branches:
+      - master
+    paths-ignore:
+      - 'k8s/**'
+      
+jobs:
+  test_run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "test run"
+        run: ls 
