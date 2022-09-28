@@ -2,14 +2,11 @@ name: "Demo"
 
 on:
   pull_request:
-    branches: ['master']
-    paths-ignore:
-      - 'k8s/**'
+    branches: 
+      - main
   push:
     branches:
-      - master
-    paths-ignore:
-      - 'k8s/**'
+      - main
 
 jobs:
   test_run:
