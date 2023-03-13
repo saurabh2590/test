@@ -1,5 +1,5 @@
 ```mermaid
-@startuml
+
 
 
 skinparam nodesep 10
@@ -91,7 +91,6 @@ Rel(pactsDb,pactsDBPod1,"database")
 Rel(apiPactsPod1,pactsDb,"loadbalance traffic")
 Rel(pgPactSecret,pactsDb,"Pact DB Credentials")
 
-@enduml
 
 
 ```
