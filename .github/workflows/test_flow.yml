@@ -27,25 +27,9 @@ jobs:
           echo "hello $TEST input ${{ inputs.segment }}"
           echo "TEST=${INPUT_SEGMENT@U}" >> ${GITHUB_ENV}
           echo ${{ env.TEST }}
-      - name: Calculate account Id
-        run: |
-          case ${{ inputs.segment }} in
-            dev*)
-              ACCOUNT_ID=442932542900
-            ;;
-            ci*)
-              ACCOUNT_ID=592115245551
-            ;;
-            pro*)
-              ACCOUNT_ID=321218696443
-            ;;
-            *)
-              echo "invalid input 'segment': '${SEGMENT}'"
-              exit 1
-            ;;
-          esac
-          echo "SM_ACCOUNT_ID=${ACCOUNT_ID}" >> ${GITHUB_ENV}
-      - name: Echo
-        run: echo $ACCOUNT_ID ${{ env.SM_ACCOUNT_ID }}
+      - name: echo environment variable
+        run: echo ${{ env.TEST }}
+
+  
         
         
