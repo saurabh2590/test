@@ -21,7 +21,7 @@ jobs:
     steps: 
       - name: Calculate account Id
         run: |
-          case ${{ input.segment }} in
+          case ${{ inputs.segment }} in
             dev*)
               ACCOUNT_ID=442932542900
             ;;
