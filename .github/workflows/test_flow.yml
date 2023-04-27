@@ -1,20 +1,43 @@
-name: "Demo"
-
+name: "Deploy glu on k8s to segment"
 on:
-  pull_request:
-    branches: 
-      - main
-    paths-ignore:
-      - 'k8s/**'
-  push:
-    branches:
-      - main
-    paths-ignore:
-      - 'k8s/**'
-
+  workflow_dispatch:
+    inputs:
+      segment:
+        description: 'Segment on which we deploy k8s files'
+        required: true
+        type: choice
+        options:
+          - dev00
+          - dev01
+          - ci00
+          - pro00
+      ref:
+        description: "hello"
+        required: true
+        type: string
 jobs:
-  test_run:
+  test_echo:
     runs-on: ubuntu-latest
-    steps:
-      - name: "test run"
-        run: ls 
+    steps: 
+      - name: Calculate account Id
+        run: |
+          case ${{ input.segment }} in
+            dev*)
+              ACCOUNT_ID=442932542900
+            ;;
+            ci*)
+              ACCOUNT_ID=592115245551
+            ;;
+            pro*)
+              ACCOUNT_ID=321218696443
+            ;;
+            *)
+              echo "invalid input 'segment': '${SEGMENT}'"
+              exit 1
+            ;;
+          esac
+          echo "SM_ACCOUNT_ID=${ACCOUNT_ID}" >> ${GITHUB_ENV}
+      - name: Echo
+        run: echo $ACCOUNT_ID ${{ env.SM_ACCOUNT_ID }}
+        
+        
