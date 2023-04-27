@@ -20,7 +20,8 @@ jobs:
     runs-on: ubuntu-latest
     steps: 
       - name: Echo upper case
-        run: echo "${{ inputs.segment | toupper }}" 
+        shell: bash
+        run: echo "${{ inputs.segment@U }}" 
       - name: Calculate account Id
         run: |
           case ${{ inputs.segment }} in
