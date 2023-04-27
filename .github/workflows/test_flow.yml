@@ -23,6 +23,8 @@ jobs:
         shell: bash
         run: |
           INPUT_SEGMENT=${{ inputs.segment }}
+          TEST=${INPUT_SEGMENT@U}
+          echo "hello $TEST input ${{ inputs.segment }}"
           echo "TEST=${INPUT_SEGMENT@U}" >> ${GITHUB_ENV}
           echo ${{ env.TEST }}
       - name: Calculate account Id
