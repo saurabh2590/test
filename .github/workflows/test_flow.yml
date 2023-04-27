@@ -19,6 +19,8 @@ jobs:
   test_echo:
     runs-on: ubuntu-latest
     steps: 
+      - name: Echo upper case
+        run: echo ${{ uppercase(inputs.segment) }}
       - name: Calculate account Id
         run: |
           case ${{ inputs.segment }} in
