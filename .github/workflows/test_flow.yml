@@ -21,7 +21,10 @@ jobs:
     steps: 
       - name: Echo upper case
         shell: bash
-        run: echo "${{ inputs.segment@U }}" 
+        run: |
+          INPUT_SEGMENT=${{ inputs.segment }}
+          echo "TEST=${INPUT_SEGMENT@U}" >> ${GITHUB_ENV}
+          echo ${{ env.TEST }}
       - name: Calculate account Id
         run: |
           case ${{ inputs.segment }} in
